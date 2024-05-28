@@ -13,6 +13,7 @@ module.exports = async (req, res) => {
         if (isAdmin) {
             isValid = await validateAdmin(username, password);
             if (isValid) {
+                req.session.user = { username: 'admin' }; // Store user data in the session
                 res.json({ message: '', redirectUrl: '/admin' });
             } else {
                 res.status(404).json({ error: 'Invalid admin username or password' });
@@ -20,6 +21,8 @@ module.exports = async (req, res) => {
         } else {
             isValid = await validateUser(username, password);
             if (isValid) {
+                req.session.user = { username }; // Store user data in the session
+                console.log('Session ID:', req.sessionID);
                 res.json({ message: '', redirectUrl: '/' });
             } else {
                 res.status(404).json({ error: 'Invalid username or password' });

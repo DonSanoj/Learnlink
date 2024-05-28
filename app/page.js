@@ -1,13 +1,15 @@
-// app/page.js
-import React from 'react';
+'use client'
 
-const HomePage = () => {
+import Logout from "@/components/Logout";
+
+export default function HomePage() {
   return (
-    <div>
-      <h1>Welcome to the Homepage</h1>
-      <p>This is the homepage of your Next.js application.</p>
-    </div>
-  );
-};
+    <>
+      <div>
+        <h1>Welcome to Your App</h1>
+      </div>
 
-export default HomePage;
+      <Logout />
+    </>
+  );
+}
