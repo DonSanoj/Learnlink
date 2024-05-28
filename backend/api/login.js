@@ -13,14 +13,14 @@ module.exports = async (req, res) => {
         if (isAdmin) {
             isValid = await validateAdmin(username, password);
             if (isValid) {
-                res.json({ message: 'SuperUser' });
+                res.json({ message: '', redirectUrl: '/admin' });
             } else {
                 res.status(404).json({ error: 'Invalid admin username or password' });
             }
         } else {
             isValid = await validateUser(username, password);
             if (isValid) {
-                res.json({ message: 'Welcome' });
+                res.json({ message: '', redirectUrl: '/' });
             } else {
                 res.status(404).json({ error: 'Invalid username or password' });
             }
