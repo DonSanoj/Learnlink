@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes brightnessChange {
+    0% {
+        background-color: #f0f2f5;
+    }
+
+    50% {
+        background-color: #4a464680;
+    }
+
+    100% {
+        background-color: #f0f2f5;
+    }
+}
+
+.brightness-animation {
+    animation: brightnessChange 3s infinite;
+}
+
+section.login {
+    @apply grid;
+    grid-template-columns: .4fr .6fr;
+}

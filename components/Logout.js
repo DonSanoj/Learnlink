@@ -19,6 +19,7 @@ export default function Logout() {
             console.log('Response:', response);
             const data = await response.json();
             console.log('Data:', data);
+            localStorage.removeItem('username');
             router.push('/login');
         } catch (error) {
             console.error('Logout error:', error);
