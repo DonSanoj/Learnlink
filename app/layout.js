@@ -17,3 +17,6 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// bg-[#1c1e21]
+
