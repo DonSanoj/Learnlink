@@ -97,7 +97,7 @@ export default function LoginForm() {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                                 />
                             </div>
-                            <button type="submit" className="w-full bg-blue-500 hover:bg-[#0078D4] mt-3 text-white text-[18px] py-2 px-4 rounded-md ">Login</button>
+                            <button type="submit" className="w-full bg-blue-500 hover:bg-[#0078D4] mt-3 text-white text-[18px] py-2 px-4 rounded-md ">Log in</button>
 
                             <div className="mt-6 text-center text-sm">
                                 <h3>Don't have an Account?</h3>
@@ -135,7 +135,7 @@ export default function LoginForm() {
                                 </label>
                             </div>
 
-                            <button type="submit" className="w-full bg-blue-500 hover:bg-[#0078D4] mt-3 text-white text-[18px] py-2 px-4 rounded-md">Login</button>
+                            <button type="submit" className="w-full bg-blue-500 hover:bg-[#0078D4] mt-3 text-white text-[18px] py-2 px-4 rounded-md">Log in</button>
 
                         </form>
                     )}
