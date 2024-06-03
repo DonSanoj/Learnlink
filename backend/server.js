@@ -1,12 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const session = require('express-session'); // Import express-session
-
-const { pgClient } = require('./config');
-const { validateUser } = require('./auth');
-const loginHandler = require('./api/login');
+const session = require('express-session');
 const logoutRouter = require('./api/logout');
+const registerUser = require('./api/register');
+const loginHandler = require('./api/login');  // Correct path to login.js
 
 const app = express();
 const PORT = 8080;
@@ -14,13 +12,13 @@ const PORT = 8080;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(session({
-    secret: '475897458923we234@#$@2234213', // Change this to a secure random string
+    secret: '475897458923we234@#$@2234213',
     resave: false,
     saveUninitialized: false,
 }));
 
-app.post('/api/login', loginHandler);
-
+app.post('/api/register', registerUser);
+app.post('/api/login', loginHandler);  // Ensure the route is correctly set
 app.post('/api/logout', logoutRouter);
 
 app.listen(PORT, () => {
