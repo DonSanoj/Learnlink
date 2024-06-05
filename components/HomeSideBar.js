@@ -29,7 +29,7 @@ export default function HomeSideBar({ username }) {
         <section className='p-4 w-72 h-screen fixed bg-[#1c1e21]'>
 
             <div className='flex items-center mt-5 p-3 bg-slate-300 bg-opacity-15 text-lg rounded-lg duration-200 space-x-2'>
-                <Link href={'/'} className=' flex space-x-3'>
+                <Link href={`/${username}`} className=' flex space-x-3'>
                     <div className='bg-cyan-600 rounded-full'>
                         <Image src={''} width={30} height={30} className='rounded-full' alt='profile' />
                     </div>

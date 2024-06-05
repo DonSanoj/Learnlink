@@ -26,7 +26,7 @@ export default function HomePage() {
         router.push('/login');
       }
       setIsLoading(false);
-    }, 3000);
+    }, 1500);
   }, [router]);
 
   if (isLoading) {

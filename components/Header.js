@@ -83,7 +83,7 @@ export default function Header({ username }) {
                             <div className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
                                 <nav className="flex flex-col gap-2 p-6 w-80 bg-[#2d2d2c] text-white rounded-lg shadow-lg border-none text-[18px]">
 
-                                    <Link href={'/'}
+                                    <Link href={`/${username}`}
                                         className=" flex items-center p-2 hover:bg-slate-300 hover:bg-opacity-15 hover:rounded-lg rounded-lg transition duration-200 mb-4">
 
                                         <Image src={''} width={30} height={30} className="bg-cyan-600 rounded-full" alt="profile" />
