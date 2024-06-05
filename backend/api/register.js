@@ -19,12 +19,9 @@ router.post('/api/register', async (req, res) => {
             return res.status(400).json({ message: 'User with this email already exists.' });
         }
 
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
         // Insert the user into the database
         const insertUserData = 'INSERT INTO users (user_name, password, birthday, educationlevel, user_contactnumber, user_email) VALUES ($1, $2, $3, $4, $5, $6)';
-        await pgClient.query(insertUserData, [username, hashedPassword, birthday, educationLevel, contactNumber, email]);
+        await pgClient.query(insertUserData, [username, password, birthday, educationLevel, contactNumber, email]);
 
         return res.status(201).json({ message: 'User registered successfully.' });
     } catch (error) {

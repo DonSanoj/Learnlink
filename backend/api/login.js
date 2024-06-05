@@ -2,30 +2,30 @@ const express = require('express');
 const { validateUser, validateAdmin } = require('../auth');
 const bcrypt = require('bcrypt');
 const { pgClient } = require('../config');
+const router = require('./logout');
 
 const loginRouter = express.Router();
 
-loginRouter.post('/api/login', async (req, res) => { 
-    const { username, password, isAdmin } = req.body;
-debugger;
+loginRouter.post('/login', async (req, res) => {
+    const { email, password, isAdmin } = req.body;
+
     try {
         let isValid;
         if (isAdmin) {
-            isValid = await validateAdmin(username, password);  // Fix: pass the raw password
+            isValid = await validateAdmin(email, password);
             if (isValid) {
-                req.session.user = { username: 'admin' };
+                req.session.user = { email: 'admin' };
                 res.json({ message: '', redirectUrl: '/admin' });
             } else {
-                res.status(404).json({ error: 'Invalid admin username or password' });
+                res.status(404).json({ error: 'Invalid admin email or password' });
             }
         } else {
-            isValid = await validateUser(username, password);  // Fix: pass the raw password
-            if (isValid) {
-                req.session.user = { username };
-                console.log('Session ID:', req.sessionID);
-                res.json({ message: '', redirectUrl: '/' });
+            const user = await validateUser(email, password);
+            if (user) {
+                req.session.user = { email: user.user_email }; // Store user email in session
+                res.json({ message: '', user, redirectUrl: '/' }); // Send user data in response
             } else {
-                res.status(404).json({ error: 'Invalid username or password' });
+                res.status(404).json({ error: 'Invalid email or password' });
             }
         }
     } catch (error) {

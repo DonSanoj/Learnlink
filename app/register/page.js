@@ -67,9 +67,8 @@ export default function Register() {
                 return;
             }
 
-            const hashedPassword = await bcrypt.hash(password, 10);
             const initialData = JSON.parse(localStorage.getItem("formData"));
-            const userData = { ...initialData, email, password: hashedPassword };
+            const userData = { ...initialData, email, password };
 
             try {
                 const registerResponse = await fetch('http://localhost:8080/api/register', {

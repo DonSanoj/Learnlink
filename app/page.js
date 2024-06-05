@@ -15,7 +15,11 @@ export default function HomePage() {
 
   useEffect(() => {
     setTimeout(() => {
-      const storedUsername = localStorage.getItem('username');
+
+      const storedEmail = localStorage.getItem('user_email');
+      const storedUserId = localStorage.getItem('user_id');
+      const storedUsername = localStorage.getItem('user_name');
+
       if (storedUsername) {
         setUsername(storedUsername);
       } else {
@@ -34,19 +38,16 @@ export default function HomePage() {
       <Header username={username} />
       <br />
 
-      <div className=' mt-6'>
+      <div className='mt-6'>
         <HomeSideBar username={username} />
       </div>
 
-      <div className=' mt-6 ml-[286px] flex overflow-x-hidden'>
+      <div className='mt-6 ml-[286px] flex overflow-x-hidden'>
         <Post />
-
-        <div className=' ml-[-5px]'>
+        <div className='ml-[-5px]'>
           <RecentEvents />
         </div>
       </div>
-
-
     </>
   );
 }

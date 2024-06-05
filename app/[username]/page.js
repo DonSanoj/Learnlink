@@ -1,3 +1,6 @@
+'use client'
+
+import Header from '@/components/Header';
 import { notFound } from 'next/navigation';
 
 export default function UserProfile({ params }) {
@@ -8,9 +11,12 @@ export default function UserProfile({ params }) {
     }
 
     return (
-        <div>
-            <h1>Welcome, {username}!</h1>
-            <p>This is your profile page.</p>
-        </div>
+        <>
+            <Header />
+            <div>
+                <h1>Welcome, {username}!</h1>
+                <p>This is your profile page.</p>
+            </div>
+        </>
     );
 }

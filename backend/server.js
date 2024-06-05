@@ -4,7 +4,7 @@ const cors = require('cors');
 const session = require('express-session');
 const logoutRouter = require('./api/logout');
 const registerUser = require('./api/register');
-const loginHandler = require('./api/login');  // Correct path to login.js
+const loginRouter = require('./api/login');
 
 const app = express();
 const PORT = 8080;
@@ -18,7 +18,7 @@ app.use(session({
 }));
 
 app.post('/api/register', registerUser);
-app.post('/api/login', loginHandler);  // Ensure the route is correctly set
+app.use('/api', loginRouter); // Correctly mount loginRouter
 app.post('/api/logout', logoutRouter);
 
 app.listen(PORT, () => {
