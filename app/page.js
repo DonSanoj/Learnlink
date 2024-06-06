@@ -43,7 +43,7 @@ export default function HomePage() {
       </div>
 
       <div className='mt-6 ml-[286px] flex overflow-x-hidden'>
-        <Post />
+        <Post username={username} />
         <div className='ml-[-5px]'>
           <RecentEvents />
         </div>

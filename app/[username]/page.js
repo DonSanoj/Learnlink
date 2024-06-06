@@ -12,11 +12,8 @@ export default function UserProfile({ params }) {
 
     return (
         <>
-            <Header />
-            <div>
-                <h1>Welcome, {username}!</h1>
-                <p>This is your profile page.</p>
-            </div>
+            <Header username={username} />
+            
         </>
     );
 }
