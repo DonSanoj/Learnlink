@@ -5,6 +5,7 @@ const session = require('express-session');
 const logoutRouter = require('./api/logout');
 const registerUser = require('./api/register');
 const loginRouter = require('./api/login');
+const userIdFetch = require('./api/user');
 
 const app = express();
 const PORT = 8080;
@@ -18,8 +19,10 @@ app.use(session({
 }));
 
 app.post('/api/register', registerUser);
-app.use('/api', loginRouter); // Correctly mount loginRouter
+app.use('/api', loginRouter);
 app.post('/api/logout', logoutRouter);
+
+app.use('/api', userIdFetch);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
